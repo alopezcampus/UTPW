@@ -60,7 +60,7 @@ Add a file named `CNAME` at the root containing only the domain, for example `ur
 - **Text:** open the page's `index.html` and edit the words between the tags. Search for the phrase you want to change.
 - **Contact email and mailing list:** `assets/js/config.js`. Put the address of a form service (Formspree, Buttondown, Mailchimp) in `subscribeAction` to collect sign-ups automatically. While it is empty, the form opens an email to the contact address with the subscriber's address in it.
 - **Cycle programmes:** edit `programme/cycle-N/index.html` and the matching box in `programme/index.html`.
-- **Map:** the world map on `network/index.html` is drawn into the page itself. Each country is a `<path>`; class `on` paints it blue, class `off` grey. To add a country, change its class from `off` to `on`.
+- **Maps:** the two maps on `network/index.html` are drawn into the page. Each country is a `<circle class="dot">` with `data-n` (members) and `data-name`; ask for the maps to be regenerated when the numbers change.
 - **Colours and type:** variables at the top of `assets/css/site.css`. The blue is `#0000ff`, the blue of the logo mark. The whole site uses one family, Poppins, the type of the logo and the menu.
 - **Adding a new page:** copy a folder such as `about/`, rename it, edit the text, and add a link in the header and footer `<nav>` of every page.
 
