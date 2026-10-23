@@ -27,12 +27,33 @@
       a.href = "mailto:" + cfg.email;
       a.textContent = cfg.email;
       a.hidden = false;
-    } else if (kind === "join" && cfg.joinUrl) {
-      a.href = cfg.joinUrl;
-      a.hidden = false;
     }
   });
-  document.querySelectorAll("[data-contact-fallback]").forEach(function (el) {
-    if (cfg.email || cfg.joinUrl) el.hidden = true;
-  });
+
+  // Mailing-list sign-up (Contact page)
+  var form = document.querySelector("[data-subscribe]");
+  if (form) {
+    var msg = form.parentNode.querySelector("[data-subscribe-msg]");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var input = form.querySelector("input[type=email]");
+      if (!input.checkValidity()) { input.reportValidity(); return; }
+      var addr = input.value.trim();
+      function done(text) { if (msg) { msg.textContent = text; msg.hidden = false; } }
+      if (cfg.subscribeAction) {
+        var data = new FormData(form);
+        fetch(cfg.subscribeAction, { method: "POST", body: data, headers: { Accept: "application/json" } })
+          .then(function (r) {
+            if (!r.ok) throw new Error();
+            form.reset();
+            done("Thank you. You are on the mailing list.");
+          })
+          .catch(function () { done("Something went wrong. Please write to " + cfg.email + "."); });
+      } else {
+        location.href = "mailto:" + cfg.email + "?subject=" + encodeURIComponent("Subscribe to the mailing list") +
+          "&body=" + encodeURIComponent("Please add " + addr + " to the mailing list.");
+        done("Your email app should now open with the request. Send it and you are on the list.");
+      }
+    });
+  }
 })();
