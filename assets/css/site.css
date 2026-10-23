@@ -225,15 +225,15 @@ h1,h2,h3{font-family:var(--f-display);font-weight:300;margin:0;line-height:1.1;l
 .sessions p{margin:0;color:var(--mute)}
 .meta{display:flex;flex-wrap:wrap;gap:.5rem 2rem;margin-top:1.25rem}
 
-/* author button */
-.author-link{margin-top:1.5rem}
 
-/* network map */
-.map{height:min(70vh,34rem);border:1px solid var(--ink);background:var(--tint);z-index:0}
+/* network map (static world map, countries filled) */
+.map{margin:1.5rem 0 0;padding:0}
+.worldmap{display:block;width:100%;height:auto}
+.worldmap path{stroke:var(--paper);stroke-width:.6;stroke-linejoin:round}
+.worldmap .off{fill:var(--soft)}
+.worldmap .on{fill:var(--blue)}
+.worldmap .on:hover{fill:var(--ink)}
 .map-note{font-size:.9rem;color:var(--mute);margin-top:.75rem}
-.leaflet-container{font-family:var(--f-text)}
-.leaflet-popup-content{font-size:.9rem;line-height:1.45}
-.leaflet-popup-content strong{font-weight:500}
 .clusters a{color:inherit;text-decoration:none;display:block}
 .clusters a:hover{color:var(--blue)}
 .clusters a::after{content:" \2192";color:var(--blue)}
