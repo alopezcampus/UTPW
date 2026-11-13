@@ -303,9 +303,16 @@ h1,h2,h3{font-family:var(--f-display);font-weight:300;margin:0;line-height:1.1;l
 .pin-close{flex:none;background:none;border:0;padding:.3rem .5rem;font-size:1.3rem;line-height:1;color:var(--mute);cursor:pointer}
 .pin-close:hover{color:var(--ink)}
 @media (prefers-reduced-motion:reduce){.pin{transition:none}}
-.promo-date{position:relative;display:flex;align-items:baseline;gap:.6rem;line-height:1;color:var(--blue)}
-@media (min-width:48rem){.promo-date{flex-direction:column;align-items:flex-end;gap:.35rem;margin-right:.5rem}}
-.promo-day{font-family:var(--f-display);font-weight:300;font-size:clamp(3rem,7vw,5.5rem);letter-spacing:-.04em}
-.promo-month{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
 .pin-date{flex:none;font-family:var(--f-display);font-weight:500;font-size:.95rem;color:var(--blue);white-space:nowrap}
 .pin-link{padding:.45rem clamp(1.1rem,3.5vw,2.75rem)}
+/* oval mark: the card shrinks to its content and the pen circles it */
+.promo .wrap{display:flex;justify-content:center}
+.promo-card{display:block;width:fit-content;max-width:46rem;padding:clamp(2.2rem,5vw,3.2rem) clamp(2.6rem,7vw,5rem);text-align:center}
+.promo-text{align-items:center}
+.promo-title{font-size:clamp(1.6rem,3.6vw,2.6rem)}
+.promo-sub{max-width:30rem;font-size:1rem}
+.pen path{stroke-width:2}
+.pin-wrap{justify-content:center}
+.pin-link{flex:0 1 auto;padding:.55rem clamp(1.6rem,4vw,2.6rem)}
+.pin-go{margin-left:.4rem}
+@media (max-width:36rem){.promo-cta{letter-spacing:.06em;font-size:.72rem}.pin-link{padding-top:.8rem;padding-bottom:.8rem}}
