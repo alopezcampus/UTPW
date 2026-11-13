@@ -248,3 +248,27 @@ h1,h2,h3{font-family:var(--f-display);font-weight:300;margin:0;line-height:1.1;l
 .subscribe input:focus{outline:3px solid var(--blue);outline-offset:1px}
 .form-msg{margin-top:1rem;color:var(--blue);font-weight:500}
 .empty{color:var(--mute);padding:1.25rem 0}
+.rail h3{color:var(--ink)}
+.rail .sub{font-size:.9rem;line-height:1.4;color:var(--mute)}
+/* home: longer hero statement */
+.display.long{font-size:clamp(1.9rem,4.2vw,3.5rem);line-height:1.1}
+.blue-text{color:var(--blue)}
+.hero-intro p{margin:0 0 1em}
+.hero-intro p:last-child{margin-bottom:0}
+/* events */
+.events{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.events li{border-bottom:1px solid var(--soft)}
+.events a{display:grid;grid-template-columns:auto minmax(0,1fr);gap:1.25rem 2rem;padding:1.4rem 0;color:inherit;text-decoration:none}
+.events a:hover .q{color:var(--blue)}
+.events .when{display:flex;flex-direction:column;min-width:5rem}
+.events .day{font-family:var(--f-display);font-weight:300;font-size:clamp(2.6rem,5vw,4rem);line-height:1;letter-spacing:-.03em;color:var(--blue)}
+.events .what{display:flex;flex-direction:column;gap:.5rem}
+.events .q{font-family:var(--f-display);font-weight:300;font-size:clamp(1.2rem,2.2vw,1.6rem);line-height:1.3;color:var(--ink)}
+.events .go{color:var(--blue)}
+.agenda{list-style:none;margin:0;padding:0}
+.agenda li{display:grid;gap:.35rem 2rem;padding:1.1rem 0;border-bottom:1px solid var(--soft)}
+.agenda li:first-child{border-top:1px solid var(--ink)}
+@media (min-width:50rem){.agenda li{grid-template-columns:minmax(0,2fr) minmax(0,10fr)}}
+.agenda .t{font-family:var(--f-display);font-weight:500;color:var(--blue)}
+.agenda p{margin:0}
+.actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
