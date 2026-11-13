@@ -288,16 +288,6 @@ h1,h2,h3{font-family:var(--f-display);font-weight:300;margin:0;line-height:1.1;l
 .promo-sub{max-width:38rem;font-weight:300;font-size:1.05rem;line-height:1.5;color:var(--mute)}
 .promo-cta{margin-top:.3rem;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--blue)}
 .promo-card:hover .promo-title{color:var(--blue)}
-.promo-card:hover .piocha{transform:rotate(-2deg) translateY(-2px)}
-/* piocha: enamel pin with the date */
-.piocha{position:relative;justify-self:start;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:5.6rem;height:5.6rem;border-radius:1.4rem;background:var(--blue);color:#fff;line-height:1;border:3px solid #c7c7d1;box-shadow:inset 0 0 0 2px #fff,inset 0 -6px 10px rgba(0,0,40,.25),0 3px 0 #a9a9b6,0 6px 12px rgba(13,13,18,.18);transform:rotate(-7deg);transition:transform .3s ease}
-.piocha::after{content:"";position:absolute;top:10%;left:14%;width:34%;height:16%;border-radius:50%;background:rgba(255,255,255,.35);transform:rotate(-20deg)}
-@media (min-width:48rem){.piocha{justify-self:end;margin-right:.5rem}}
-.piocha-d{font-family:var(--f-display);font-weight:600;font-size:2.2rem;letter-spacing:-.03em}
-.piocha-m{font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;margin-top:.15rem}
-.piocha-sm{width:2.4rem;height:2.4rem;border-radius:.65rem;border-width:2px;box-shadow:inset 0 0 0 1px #fff,0 2px 0 #a9a9b6;transform:rotate(-7deg);flex:none}
-.piocha-sm .piocha-d{font-size:.95rem}
-.piocha-sm .piocha-m{font-size:.42rem;letter-spacing:.1em;margin-top:.05rem}
 /* pinned to the top once the banner scrolls away */
 .pin{position:fixed;top:0;left:0;right:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--soft);padding:.5rem 0;transform:translateY(-110%);transition:transform .25s ease}
 .pin[hidden]{display:none}
@@ -312,11 +302,10 @@ h1,h2,h3{font-family:var(--f-display);font-weight:300;margin:0;line-height:1.1;l
 .pin-go{margin-left:auto;color:var(--blue);font-size:1.1rem}
 .pin-close{flex:none;background:none;border:0;padding:.3rem .5rem;font-size:1.3rem;line-height:1;color:var(--mute);cursor:pointer}
 .pin-close:hover{color:var(--ink)}
-@media (prefers-reduced-motion:reduce){.piocha,.pin{transition:none}}
-@media (max-width:47.99rem){
-  .promo{padding-top:1.75rem}
-  .promo-card>.piocha{position:absolute;top:-1rem;right:.75rem;width:4.2rem;height:4.2rem;border-radius:1.05rem}
-  .promo-card>.piocha .piocha-d{font-size:1.65rem}
-  .promo-card>.piocha .piocha-m{font-size:.6rem}
-  .promo-label{padding-right:4.5rem}
-}
+@media (prefers-reduced-motion:reduce){.pin{transition:none}}
+.promo-date{position:relative;display:flex;align-items:baseline;gap:.6rem;line-height:1;color:var(--blue)}
+@media (min-width:48rem){.promo-date{flex-direction:column;align-items:flex-end;gap:.35rem;margin-right:.5rem}}
+.promo-day{font-family:var(--f-display);font-weight:300;font-size:clamp(3rem,7vw,5.5rem);letter-spacing:-.04em}
+.promo-month{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+.pin-date{flex:none;font-family:var(--f-display);font-weight:500;font-size:.95rem;color:var(--blue);white-space:nowrap}
+.pin-link{padding:.45rem clamp(1.1rem,3.5vw,2.75rem)}
