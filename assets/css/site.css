@@ -279,7 +279,7 @@ h1,h2,h3{font-family:var(--f-display);font-weight:300;margin:0;line-height:1.1;l
 .promo{padding-top:clamp(1.25rem,3vw,2rem)}
 .promo-card{position:relative;display:grid;gap:1.25rem;align-items:center;color:var(--ink);text-decoration:none;padding:clamp(1.4rem,3.5vw,2.25rem) clamp(1.4rem,3.5vw,2.75rem)}
 @media (min-width:48rem){.promo-card{grid-template-columns:minmax(0,1fr) auto;gap:3rem}}
-.pen{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.pen{position:absolute;inset:0;width:100%;height:100%;max-width:none;overflow:visible;pointer-events:none}
 .pen path{fill:none;stroke:var(--red);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;opacity:.85}
 .pen .pen2{stroke-width:1.3;opacity:.45}
 .promo-text{position:relative;display:flex;flex-direction:column;gap:.5rem}
@@ -316,3 +316,13 @@ h1,h2,h3{font-family:var(--f-display);font-weight:300;margin:0;line-height:1.1;l
 .pin-link{flex:0 1 auto;padding:.55rem clamp(1.6rem,4vw,2.6rem)}
 .pin-go{margin-left:.4rem}
 @media (max-width:36rem){.promo-cta{letter-spacing:.06em;font-size:.72rem}.pin-link{padding-top:.8rem;padding-bottom:.8rem}}
+/* oval sized so the whole text sits inside it (ellipse around box = box x 1.42) */
+.promo{padding-top:clamp(2.5rem,6vw,4rem);padding-bottom:clamp(1.5rem,4vw,2.5rem)}
+.promo-card{padding:clamp(.4rem,1.5vw,.8rem) clamp(.6rem,2vw,1.2rem)}
+.promo-card .pen{inset:auto;left:-19%;top:-24%;width:138%;height:148%}
+@media (max-width:36rem){.promo{padding-left:1.4rem;padding-right:1.4rem}.promo-card .pen{left:-12%;top:-20%;width:124%;height:140%}}
+.pin{padding:.9rem 0}
+.pin-link{padding:.2rem .6rem}
+.pin-link .pen{inset:auto;left:-6%;top:-38%;width:112%;height:176%}
+@media (max-width:36rem){.pin{padding:1.3rem 0 1.1rem}.pin-link .pen{left:-5%;top:-30%;width:110%;height:160%}}
+.pin-wrap{gap:clamp(.75rem,3vw,2rem)}
