@@ -272,39 +272,51 @@ h1,h2,h3{font-family:var(--f-display);font-weight:300;margin:0;line-height:1.1;l
 .agenda .t{font-family:var(--f-display);font-weight:500;color:var(--blue)}
 .agenda p{margin:0}
 .actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
-/* coming up next: banner */
+.promo + .hero{padding-top:clamp(2rem,5vw,3.5rem)}
+
+/* coming up next: banner, marked like a date on a calendar */
 :root{--red:#e3262f}
 .promo{padding-top:clamp(1.25rem,3vw,2rem)}
-.promo-card{position:relative;display:grid;gap:1.5rem;align-items:center;background:var(--blue);color:#fff;text-decoration:none;padding:clamp(1.5rem,4vw,2.75rem) clamp(1.5rem,4vw,3rem);overflow:hidden}
+.promo-card{position:relative;display:grid;gap:1.25rem;align-items:center;color:var(--ink);text-decoration:none;padding:clamp(1.4rem,3.5vw,2.25rem) clamp(1.4rem,3.5vw,2.75rem)}
 @media (min-width:48rem){.promo-card{grid-template-columns:minmax(0,1fr) auto;gap:3rem}}
-.promo-text{display:flex;flex-direction:column;gap:.6rem}
-.promo-label{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
-.promo-title{font-family:var(--f-display);font-weight:500;text-transform:uppercase;font-size:clamp(2rem,6vw,4.6rem);line-height:.98;letter-spacing:-.01em}
-.promo-sub{max-width:38rem;font-weight:300;font-size:1.1rem;line-height:1.5}
-.promo-cta{margin-top:.4rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;text-decoration:underline;text-underline-offset:.35em;text-decoration-thickness:1px}
-.promo-card:hover .promo-cta{text-decoration-thickness:2px}
-.promo-card:focus-visible{outline-color:var(--ink)}
-.stamp{justify-self:start;display:flex;flex-direction:column;align-items:center;justify-content:center;width:9.5rem;height:9.5rem;border-radius:50%;background:#fff;color:var(--red);border:2px solid var(--red);box-shadow:0 0 0 5px #fff inset,0 0 0 6px var(--red) inset;transform:rotate(-12deg);line-height:1;transition:transform .3s ease}
-@media (min-width:48rem){.stamp{justify-self:end;width:11rem;height:11rem}}
-.promo-card:hover .stamp{transform:rotate(-4deg)}
-.stamp-d{font-family:var(--f-display);font-weight:500;font-size:3.4rem;letter-spacing:-.03em}
-.stamp-m{font-weight:500;text-transform:uppercase;letter-spacing:.14em;font-size:.95rem;margin-top:.15rem}
-.stamp-s{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-top:.45rem}
-@media (prefers-reduced-motion:reduce){.stamp,.pin{transition:none}}
-/* coming up next: pinned reminder */
-.pin{position:fixed;right:clamp(.75rem,2vw,1.5rem);bottom:clamp(.75rem,2vw,1.5rem);z-index:20;display:flex;align-items:stretch;max-width:22rem;background:var(--paper);border:1px solid var(--ink);box-shadow:4px 4px 0 var(--blue);opacity:0;transform:translateY(.75rem);transition:opacity .25s ease,transform .25s ease}
+.pen{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.pen path{fill:none;stroke:var(--red);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke;opacity:.85}
+.pen .pen2{stroke-width:1.3;opacity:.45}
+.promo-text{position:relative;display:flex;flex-direction:column;gap:.5rem}
+.promo-label{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;color:var(--red)}
+.promo-title{font-family:var(--f-display);font-weight:500;text-transform:uppercase;font-size:clamp(1.7rem,4.4vw,3.2rem);line-height:1.02;letter-spacing:-.005em}
+.promo-sub{max-width:38rem;font-weight:300;font-size:1.05rem;line-height:1.5;color:var(--mute)}
+.promo-cta{margin-top:.3rem;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--blue)}
+.promo-card:hover .promo-title{color:var(--blue)}
+.promo-card:hover .piocha{transform:rotate(-2deg) translateY(-2px)}
+/* piocha: enamel pin with the date */
+.piocha{position:relative;justify-self:start;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:5.6rem;height:5.6rem;border-radius:1.4rem;background:var(--blue);color:#fff;line-height:1;border:3px solid #c7c7d1;box-shadow:inset 0 0 0 2px #fff,inset 0 -6px 10px rgba(0,0,40,.25),0 3px 0 #a9a9b6,0 6px 12px rgba(13,13,18,.18);transform:rotate(-7deg);transition:transform .3s ease}
+.piocha::after{content:"";position:absolute;top:10%;left:14%;width:34%;height:16%;border-radius:50%;background:rgba(255,255,255,.35);transform:rotate(-20deg)}
+@media (min-width:48rem){.piocha{justify-self:end;margin-right:.5rem}}
+.piocha-d{font-family:var(--f-display);font-weight:600;font-size:2.2rem;letter-spacing:-.03em}
+.piocha-m{font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;margin-top:.15rem}
+.piocha-sm{width:2.4rem;height:2.4rem;border-radius:.65rem;border-width:2px;box-shadow:inset 0 0 0 1px #fff,0 2px 0 #a9a9b6;transform:rotate(-7deg);flex:none}
+.piocha-sm .piocha-d{font-size:.95rem}
+.piocha-sm .piocha-m{font-size:.42rem;letter-spacing:.1em;margin-top:.05rem}
+/* pinned to the top once the banner scrolls away */
+.pin{position:fixed;top:0;left:0;right:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--soft);padding:.5rem 0;transform:translateY(-110%);transition:transform .25s ease}
 .pin[hidden]{display:none}
-.pin.show{opacity:1;transform:none}
-.pin-link{display:flex;align-items:center;gap:.8rem;padding:.8rem .5rem .8rem 1rem;color:var(--ink);text-decoration:none;flex:1}
+.pin.show{transform:none}
+.pin-wrap{display:flex;align-items:center;gap:.5rem}
+.pin-link{position:relative;flex:1;display:flex;align-items:center;gap:.9rem;padding:.45rem .9rem;color:var(--ink);text-decoration:none;min-width:0}
+.pin-link .pen path{stroke-width:1.6}
 .pin-link:hover .pin-title{color:var(--blue)}
-.pin-dot{flex:none;width:.6rem;height:.6rem;border-radius:50%;background:var(--red);animation:pinpulse 2.4s ease-in-out infinite}
-@keyframes pinpulse{0%,100%{opacity:1}50%{opacity:.35}}
-@media (prefers-reduced-motion:reduce){.pin-dot{animation:none}}
-.pin-text{display:flex;flex-direction:column;gap:.15rem}
+.pin-text{display:flex;flex-wrap:wrap;align-items:baseline;gap:.1rem .9rem;min-width:0}
 .pin-label{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--red)}
 .pin-title{font-weight:500;font-size:.92rem;line-height:1.3}
-.pin-go{color:var(--blue);font-size:1.1rem}
-.pin-close{flex:none;background:none;border:0;border-left:1px solid var(--soft);padding:0 .8rem;font-size:1.25rem;line-height:1;color:var(--mute);cursor:pointer}
+.pin-go{margin-left:auto;color:var(--blue);font-size:1.1rem}
+.pin-close{flex:none;background:none;border:0;padding:.3rem .5rem;font-size:1.3rem;line-height:1;color:var(--mute);cursor:pointer}
 .pin-close:hover{color:var(--ink)}
-@media (max-width:36rem){.pin{left:.75rem;right:.75rem;max-width:none}}
-.promo + .hero{padding-top:clamp(2rem,5vw,3.5rem)}
+@media (prefers-reduced-motion:reduce){.piocha,.pin{transition:none}}
+@media (max-width:47.99rem){
+  .promo{padding-top:1.75rem}
+  .promo-card>.piocha{position:absolute;top:-1rem;right:.75rem;width:4.2rem;height:4.2rem;border-radius:1.05rem}
+  .promo-card>.piocha .piocha-d{font-size:1.65rem}
+  .promo-card>.piocha .piocha-m{font-size:.6rem}
+  .promo-label{padding-right:4.5rem}
+}
