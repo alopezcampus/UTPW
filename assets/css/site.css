@@ -272,3 +272,39 @@ h1,h2,h3{font-family:var(--f-display);font-weight:300;margin:0;line-height:1.1;l
 .agenda .t{font-family:var(--f-display);font-weight:500;color:var(--blue)}
 .agenda p{margin:0}
 .actions{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
+/* coming up next: banner */
+:root{--red:#e3262f}
+.promo{padding-top:clamp(1.25rem,3vw,2rem)}
+.promo-card{position:relative;display:grid;gap:1.5rem;align-items:center;background:var(--blue);color:#fff;text-decoration:none;padding:clamp(1.5rem,4vw,2.75rem) clamp(1.5rem,4vw,3rem);overflow:hidden}
+@media (min-width:48rem){.promo-card{grid-template-columns:minmax(0,1fr) auto;gap:3rem}}
+.promo-text{display:flex;flex-direction:column;gap:.6rem}
+.promo-label{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500}
+.promo-title{font-family:var(--f-display);font-weight:500;text-transform:uppercase;font-size:clamp(2rem,6vw,4.6rem);line-height:.98;letter-spacing:-.01em}
+.promo-sub{max-width:38rem;font-weight:300;font-size:1.1rem;line-height:1.5}
+.promo-cta{margin-top:.4rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;text-decoration:underline;text-underline-offset:.35em;text-decoration-thickness:1px}
+.promo-card:hover .promo-cta{text-decoration-thickness:2px}
+.promo-card:focus-visible{outline-color:var(--ink)}
+.stamp{justify-self:start;display:flex;flex-direction:column;align-items:center;justify-content:center;width:9.5rem;height:9.5rem;border-radius:50%;background:#fff;color:var(--red);border:2px solid var(--red);box-shadow:0 0 0 5px #fff inset,0 0 0 6px var(--red) inset;transform:rotate(-12deg);line-height:1;transition:transform .3s ease}
+@media (min-width:48rem){.stamp{justify-self:end;width:11rem;height:11rem}}
+.promo-card:hover .stamp{transform:rotate(-4deg)}
+.stamp-d{font-family:var(--f-display);font-weight:500;font-size:3.4rem;letter-spacing:-.03em}
+.stamp-m{font-weight:500;text-transform:uppercase;letter-spacing:.14em;font-size:.95rem;margin-top:.15rem}
+.stamp-s{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;margin-top:.45rem}
+@media (prefers-reduced-motion:reduce){.stamp,.pin{transition:none}}
+/* coming up next: pinned reminder */
+.pin{position:fixed;right:clamp(.75rem,2vw,1.5rem);bottom:clamp(.75rem,2vw,1.5rem);z-index:20;display:flex;align-items:stretch;max-width:22rem;background:var(--paper);border:1px solid var(--ink);box-shadow:4px 4px 0 var(--blue);opacity:0;transform:translateY(.75rem);transition:opacity .25s ease,transform .25s ease}
+.pin[hidden]{display:none}
+.pin.show{opacity:1;transform:none}
+.pin-link{display:flex;align-items:center;gap:.8rem;padding:.8rem .5rem .8rem 1rem;color:var(--ink);text-decoration:none;flex:1}
+.pin-link:hover .pin-title{color:var(--blue)}
+.pin-dot{flex:none;width:.6rem;height:.6rem;border-radius:50%;background:var(--red);animation:pinpulse 2.4s ease-in-out infinite}
+@keyframes pinpulse{0%,100%{opacity:1}50%{opacity:.35}}
+@media (prefers-reduced-motion:reduce){.pin-dot{animation:none}}
+.pin-text{display:flex;flex-direction:column;gap:.15rem}
+.pin-label{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--red)}
+.pin-title{font-weight:500;font-size:.92rem;line-height:1.3}
+.pin-go{color:var(--blue);font-size:1.1rem}
+.pin-close{flex:none;background:none;border:0;border-left:1px solid var(--soft);padding:0 .8rem;font-size:1.25rem;line-height:1;color:var(--mute);cursor:pointer}
+.pin-close:hover{color:var(--ink)}
+@media (max-width:36rem){.pin{left:.75rem;right:.75rem;max-width:none}}
+.promo + .hero{padding-top:clamp(2rem,5vw,3.5rem)}

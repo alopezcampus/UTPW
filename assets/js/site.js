@@ -57,3 +57,27 @@
     });
   }
 })();
+
+// Coming up next: pinned reminder appears once the banner scrolls out of view
+(function () {
+  var pin = document.querySelector("[data-pin]");
+  var banner = document.querySelector(".promo");
+  if (!pin || !banner || !("IntersectionObserver" in window)) return;
+  var key = "utpw-pin-closed-" + (pin.querySelector("a") || {}).getAttribute("href");
+  var closed = false;
+  try { closed = sessionStorage.getItem(key) === "1"; } catch (e) {}
+  if (closed) return;
+  function show(on) {
+    if (on) { pin.hidden = false; requestAnimationFrame(function () { pin.classList.add("show"); }); }
+    else { pin.classList.remove("show"); setTimeout(function () { if (!pin.classList.contains("show")) pin.hidden = true; }, 260); }
+  }
+  var io = new IntersectionObserver(function (entries) {
+    if (!closed) show(!entries[0].isIntersecting);
+  });
+  io.observe(banner);
+  var btn = pin.querySelector("[data-pin-close]");
+  if (btn) btn.addEventListener("click", function () {
+    closed = true; show(false); io.disconnect();
+    try { sessionStorage.setItem(key, "1"); } catch (e) {}
+  });
+})();
