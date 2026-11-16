@@ -5,6 +5,6 @@
                     While it is empty, the sign-up form opens an email to the address
                     above with the subscriber's address in it, so no sign-up is lost. */
 window.UTPW_CONFIG = {
-  email: "info@urbantheoryworkshop.com",
+  email: "urbantheorypermanentworkshop@gmail.com",
   subscribeAction: ""
 };
